@@ -1,12 +1,22 @@
 import moment from 'moment';
+import Image from 'next/image';
+
 import { CalendarIcon, ChevronRightIcon } from '@heroicons/react/solid';
 
 export default function VideoResult(props) {
     const date = moment(props.result.date).format('MMMM Do YYYY');
 
     return (
-        <li>
-            <a href="#" className="block hover:bg-gray-50">
+        <li className="group shadow-custom m-4 bg-white basis-1/2 transition duration-200 hover:bg-gray-200 md:basis-1/4">
+            <a href="" className="inline hover:bg-red-400">
+
+                {/* thumbnail */}
+                <div className="relative w-full bg-gray-300 border-b-2 border-gray-200">
+                    <div className="z-10 absolute bg-black top-0 left-0 w-full h-full opacity-0 transition duration-200 group-hover:opacity-10"></div>
+                    <Image src={props.result.thumbnail} alt='thumbnail' width={640} height={360} layout="responsive" objectFit="contain" className="relative m-0 group-hover:bg-blend-darken" />
+                </div>
+
+                {/* labels & icons */}
                 <div className="px-4 py-4 flex items-center sm:px-6">
                     <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                         <div className="truncate">
@@ -20,17 +30,6 @@ export default function VideoResult(props) {
                                         <time dateTime={props.result.date}>{date}</time>
                                     </p>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
-                            <div className="flex overflow-hidden -space-x-1">
-                                {/* <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Dries Vincent">
-
-                                    <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Lindsay Walton">
-
-                                        <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Courtney Henry">
-
-                                            <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Tom Cook"> */}
                             </div>
                         </div>
                     </div>

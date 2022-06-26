@@ -19,14 +19,17 @@ export default function Home() {
 
     return (
         <Layout title="Home" OGdescription="Free music for everyone" OGImagePath="some/path.png">
-            <div className="w-screen h-screen max-h-screen bg-blue-300 flex flex-col justify-center items-center space-y-4">
+            <div className="w-screen h-full min-h-screen bg-gray-700 flex flex-col items-center">
+                <div className="w-2/3 h-full">
+                    {/* search form */}
+                    <div className="h-1/5 flex justify-center items-center py-6">
+                        <SearchForm />
+                    </div>
 
-                {/* search form */}
-                <SearchForm />
-
-                {/* results */}
-                <div className="flex flex-col items-center justify-start">
-                    <Results />
+                    {/* results */}
+                    <div className="flex flex-col justify-center items-center space-y-4 overflow-auto">
+                        <Results />
+                    </div>
                 </div>
 
             </div>
